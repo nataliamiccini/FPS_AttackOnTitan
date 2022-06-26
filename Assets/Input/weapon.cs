@@ -26,7 +26,7 @@ public class weapon : item
         enemy= GameObject.FindGameObjectWithTag("Enemy");
     }
 
-
+    //When the player collides with the weapon, it is set to true
     protected override void OnTriggerEnter(Collider other)
     {
         //base liked base class
