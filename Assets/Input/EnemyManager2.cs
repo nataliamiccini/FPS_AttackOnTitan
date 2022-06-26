@@ -12,15 +12,6 @@ public class EnemyManager2 : MonoBehaviour
     public float damage = 28f;
     public float health = 500f;
     public int EnemyDead = 0;
-    public void Hit(float damageP) {
-        health -= damageP;
-        StartCoroutine("ShootCoroutine");
-        if (health <= 0)
-        {
-            damage = 0;
-            StartCoroutine("DeadCoroutine");
-        }
-    }
 
     void Start()
     {
@@ -37,12 +28,30 @@ public class EnemyManager2 : MonoBehaviour
             enemyAnimator.SetBool("isRunning", false);
         }
     }
+    
+    //Hit method used to manage the big enemy's life. 
+    //If it is hit by the player then it is decreased. 
+    //If it is less than zero the enemy has been killed
+    public void Hit(float damageP) {
+        health -= damageP;
+        StartCoroutine("ShootCoroutine");
+        if (health <= 0)
+        {
+            damage = 0;
+            StartCoroutine("DeadCoroutine");
+        }
+    }
+    
+    //If the collision between the enemy and the player occurs, 
+    //then the player loses life recalling the Hit method of PlayerManager is recalled
     private void OnCollisionEnter (Collision collision){
         if(collision.gameObject.CompareTag("Player")){
             Debug.Log("Player hit by Big Giant!");
             player.GetComponent<PlayerManager>().Hit(damage);
         }
     }
+    
+    //IEnumerator used to handle boolean variables for animations
     IEnumerator DeadCoroutine()
     {
         enemyAnimator.SetBool("isDying", true);
@@ -52,6 +61,7 @@ public class EnemyManager2 : MonoBehaviour
         Debug.Log("Winner");
         Destroy(gameObject);
     }
+    
     IEnumerator ShootCoroutine()
     {
         enemyAnimator.SetBool("isShoot", true);
