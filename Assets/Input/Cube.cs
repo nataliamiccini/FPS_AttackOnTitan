@@ -12,22 +12,9 @@ public class Cube : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-  /*  protected override void OnTriggerEnter(Collider other)
-    {
-        //base liked base class
-        base.OnTriggerEnter(other);
-        
-         if(other.tag == "Trigger")
-            {
-                if(bigenemyAlive < 1) {
-                    Debug.Log("Trigger hit!");
-                    Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-                    bigenemyAlive++;
-                }
-            }
-            
-        }*/
 
+    //When the collision with the cube (placed inside the gate) 
+    //occurs, the final giant is instantiated, if it has not already been done.
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
