@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
 
     }
 
+    //Ienumerator method used to destroy the projectile after 3 seconds
     IEnumerator BulletCleanUp()
     {
         yield return new WaitForSeconds(3f);
