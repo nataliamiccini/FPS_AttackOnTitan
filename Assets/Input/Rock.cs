@@ -15,9 +15,10 @@ public class Rock : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    //Create Rock instantiates a rock in the giant's hands. 
+    //It is then thrown in the direction of the Player adding a force
     public void CreateRock()
-    {
-        
+    { 
         go = Instantiate(rock, HandPosition.position,Quaternion.identity);
         go.transform.position = HandPosition.position;
         go.GetComponent<Rigidbody>().AddForce((player.transform.position - transform.position)*70f);
