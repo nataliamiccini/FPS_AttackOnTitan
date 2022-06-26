@@ -12,27 +12,7 @@ public class EnemyManager : MonoBehaviour
     public float health = 100f;
     public GameManager gameManager;
     public int EnemyDead;
-    
-
-    public void Hit(float damageP) {
-        health -= damageP;
-        StartCoroutine("Reset");
-        if (health <= 0)
-        {
-            /*EnemyDead++;
-            if (EnemyDead != 0)
-            {
-                Debug.Log("Open Doors");
-                doorAnimatorL.SetBool("isOpenL", true);
-                doorAnimatorR.SetBool("isOpenR", true);
-            }*/
-            damage = 0;
-            StartCoroutine("Dead");
-            gameManager.enemyAlive--;
-        }
-    }
-    
-    
+   
         // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +32,24 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
+    
+    //Hit method used to manage the enemy's life. 
+    //If it is hit by the player then it is decreased. 
+    //If it is less than zero the enemy is killed.
+    public void Hit(float damageP) {
+        health -= damageP;
+        StartCoroutine("Reset");
+        if (health <= 0)
+        {
+            damage = 0;
+            StartCoroutine("Dead");
+            gameManager.enemyAlive--;
+        }
+    }
 
+
+    //If the collision between the enemy and the player occurs, 
+    //then the player loses life recalling the Hit method of PlayerManager
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == player)
@@ -63,7 +60,7 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-
+    //IEnumerator used to handle boolean variables for animations
     IEnumerator Dead() {
         // your process
         enemyAnimator.SetBool("isDying", true);
