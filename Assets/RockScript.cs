@@ -9,7 +9,7 @@ public class RockScript : MonoBehaviour
     private GameObject enemyTag;
     private GameObject house;
     public float damage = 5f;
-    //private GameObject rock;
+    
     void Start()
     {
         playerTag= GameObject.FindGameObjectWithTag("Player");
@@ -18,7 +18,7 @@ public class RockScript : MonoBehaviour
         
     }
     
-
+    //Method used to handle if the rock hits the player
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject != enemyTag)
@@ -28,13 +28,6 @@ public class RockScript : MonoBehaviour
                 Debug.Log("Player hit by a rock!");
                 playerTag.GetComponent<PlayerManager>().Hit(damage);
             }
-            
-          /* if (other.gameObject == house)
-            {
-                other.gameObject.GetComponent<Rigidbody>().collisionDetectionMode= CollisionDetectionMode.ContinuousDynamic;
-                Debug.Log("House");
-                Destroy(gameObject);
-            }*/
             Destroy(gameObject);
         }
     }
