@@ -10,6 +10,7 @@ public class WeaponEnemy: MonoBehaviour
     public GameObject player;
     private GameObject playerTag;
     public float range = 20f;
+    
     private void Start()
     {
         enemyAnimator = GetComponent<Animator>();
@@ -17,6 +18,8 @@ public class WeaponEnemy: MonoBehaviour
         playerTag= GameObject.FindGameObjectWithTag("Player");
     }
 
+    //If the distance between the enemy and the player is 
+    //less than 40, the animation of Throw in is started via Boolean control variables. 
     void Update()
     {
         if (Vector3.Distance(playerTag.transform.position, enemyAnimator.transform.position)< 40)
@@ -27,24 +30,7 @@ public class WeaponEnemy: MonoBehaviour
             }
         }
     }
-    /*private void OnCollisionEnter(Collision other)
-    {
-       if (other.gameObject == playerTag)
-        {
-            Debug.Log("Colpito");
-            playerTag.GetComponent<PlayerManager>().Hit(damage);
-        }
-        //Destroy(gameObject);
-    }*/
-    
-    /*IEnumerator Throw()
-    {
-        isFiring = false;
-        enemyAnimator.SetBool("isThrowing", true);
-        yield return new WaitForSeconds(3);
-        enemyAnimator.SetBool("isThrowing", false);
-        isFiring = true;
-    }*/
+
     
     IEnumerator Throw()
     {
