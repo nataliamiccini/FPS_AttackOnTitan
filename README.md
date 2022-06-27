@@ -1,6 +1,6 @@
 # Attack on Titan Videogame
  
-This is a videgame based on the Attack on Titan anime.
+This is a videgame based on the Attack on Titan anime. 
 The aim of the game is to save humanity from the attack of the titans. 
 In particular, the player must defeat a minimum of 3 giants in the innermost arena in order to open the doors and reach the final boss on the other side of the map. 
 
