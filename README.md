@@ -12,8 +12,8 @@ Contents:
 - Defeat screen
 
 To make it work you must:
-- Have Unity installed. Version we used is 2021.3.0f1
-- JetBrains IDE 
+- Have Unity installed. The version we used is 2021.3.0f1
+- JetBrains IDE 2022.1
 - clone the project repository with the command-line git clone
 - click the open button in unity and select the project repository
 - open Scene folder and select MainMenu Scene
