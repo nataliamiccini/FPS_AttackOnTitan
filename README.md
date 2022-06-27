@@ -2,7 +2,7 @@
  
 This is a videgame based on the Attack on Titan anime.
 The aim of the game is to save humanity from the attack of the titans. 
-In particular, the player must defeat a minimum of 5 giants in the innermost arena in order to open the doors and reach the final boss on the other side of the map. 
+In particular, the player must defeat a minimum of 3 giants in the innermost arena in order to open the doors and reach the final boss on the other side of the map. 
 
 Contents:
 - Main Start Menu
@@ -14,8 +14,8 @@ Contents:
 To make it work you must:
 - Have Unity installed. Version we used is 2021.3.0f1
 - JetBrains IDE 
-- download the project repository 
-- open a new First Person project in Unity and clone the repository into it. At this point the scene should be visible.
+- clone the project repository with the command-line git clone
+- click the open button in unity and select the project repository
 - open Scene folder and select MainMenu Scene
 - press play.
 
